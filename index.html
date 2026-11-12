@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رشته های آموزشی ما</title>
+
+<style>
+
+/* تنظیمات کلی */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    direction: rtl;
+    background: #f5f5f8;
+    color: #25263c;
+}
+
+/* بخش اصلی */
+
+.majors-section {
+    width: 100%;
+    padding: 60px 5%;
+    background: linear-gradient(
+        135deg,
+        #faf9fc,
+        #efedf4
+    );
+}
+
+/* عنوان اصلی */
+
+.majors-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.majors-heading span {
+    display: block;
+    color: #bd8736;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.majors-heading h1 {
+    font-size: 32px;
+    color: #20243c;
+    margin-bottom: 15px;
+}
+
+.majors-heading p {
+    font-size: 14px;
+    color: #777;
+    line-height: 2;
+}
+
+/* بنر اصلی */
+
+.majors-banner {
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    margin: 0 auto 45px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.13);
+}
+
+.majors-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* عنوان بخش کارت ها */
+
+.cards-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cards-title h2 {
+    color: #20243c;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.cards-title p {
+    color: #777;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* چیدمان کارت ها */
+
+.majors-grid {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* طراحی کارت */
+
+.major-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px 23px;
+    text-align: center;
+    border: 1px solid #e9e4d9;
+    box-shadow: 0 5px 22px rgba(0,0,0,.05);
+    transition: all .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.major-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: #c89545;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: .35s ease;
+}
+
+.major-card:hover::before {
+    transform: scaleX(1);
+}
+
+.major-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 32px rgba(0,0,0,.12);
+    border-color: #c89545;
+}
+
+/* شماره کارت */
+
+.major-number {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #20243c;
+    color: #f4c16c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    transition: .3s;
+}
+
+.major-card:hover .major-number {
+    background: #c89545;
+    color: white;
+    transform: rotate(8deg);
+}
+
+/* عنوان رشته */
+
+.major-card h3 {
+    font-size: 19px;
+    color: #20243c;
+    margin-bottom: 15px;
+}
+
+/* توضیحات رشته */
+
+.major-card p {
+    color: #777;
+    font-size: 13px;
+    line-height: 2.3;
+    min-height: 60px;
+    margin-bottom: 20px;
+}
+
+/* لینک */
+
+.major-link {
+    display: inline-block;
+    text-decoration: none;
+    background: #f8f2e8;
+    color: #a97526;
+    padding: 11px 23px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.major-link:hover {
+    background: #20243c;
+    color: white;
+}
+
+/* بخش پایانی */
+
+.majors-footer {
+    max-width: 1500px;
+    margin: 45px auto 0;
+    padding: 28px 20px;
+    background: #20243c;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+}
+
+.majors-footer h2 {
+    font-size: 21px;
+    color: #f4c16c;
+    margin-bottom: 12px;
+}
+
+.majors-footer p {
+    font-size: 13px;
+    line-height: 2.3;
+    color: #eee;
+}
+
+/* تبلت */
+
+@media screen and (max-width: 900px) {
+
+    .majors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .majors-heading h1 {
+        font-size: 27px;
+    }
+
+}
+
+/* موبایل */
+
+@media screen and (max-width: 550px) {
+
+    .majors-section {
+        padding: 35px 15px;
+    }
+
+    .majors-heading h1 {
+        font-size: 23px;
+    }
+
+    .majors-heading p {
+        font-size: 12px;
+    }
+
+    .majors-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .major-card {
+        padding: 25px 18px;
+    }
+
+    .major-card h3 {
+        font-size: 18px;
+    }
+
+    .majors-banner {
+        border-radius: 12px;
+    }
+
+    .majors-footer h2 {
+        font-size: 18px;
+    }
+
+}
+	.reshte{
+		width: 100%;
+		height: 350px;
+	}
+	
+/* تنظیم تصاویر */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* جلوگیری از بیرون‌زدگی محتوا */
+* {
+    box-sizing: border-box;
+}
+
+/* تنظیم صفحه */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* تنظیم نمایش در موبایل */
+@media screen and (max-width: 768px) {
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="majors-section">
+
+    <!-- عنوان اصلی -->
+
+    <div class="majors-heading">
+
+        <span>خلاقیت، مهارت و آینده</span>
+
+        <h1>رشته های آموزشی ما</h1>
+
+        <p>
+        با انتخاب رشته مورد علاقه خود،
+        استعدادهایت را شکوفا کن و آینده ای درخشان بساز.
+        </p>
+
+    </div>
+
+
+    <!-- تصویر اصلی -->
+
+    <div class="majors-banner">
+
+        <img class="reshte" src="resh.png"
+        alt="رشته های آموزشی شامل کامپیوتر، عکاسی، معماری، طراحی دوخت و کودک">
+
+    </div>
+
+
+    <!-- عنوان کارت ها -->
+
+    <div class="cards-title">
+
+        <h2>با رشته های ما بیشتر آشنا شوید</h2>
+
+        <p>
+        دنیایی از هنر، دانش، خلاقیت و مهارت در انتظار شماست.
+        </p>
+
+
+    </div>
+
+    <div class="majors-grid">
+
+        <div class="major-card">
+
+            <div class="major-number">01</div>
+
+            <h3>مهندسی کامپیوتر</h3>
+
+            <p>
+            رشته کامپیوتر دنیایی از فناوری،
+            برنامه نویسی و نوآوری است.
+            در این رشته با طراحی نرم افزار،
+            وب و مهارت های دیجیتال آشنا می شوید
+            و برای ورود به دنیای تکنولوژی آماده خواهید شد.
+            </p>
+
+            <a href="moarefi2.html" class="major-link">
+            مشاهده رشته ←
+            </a>
+
+        </div>
+
+
+       
+
+        <div class="major-card">
+
+            <div class="major-number">02</div>
+
+            <h3>رشته عکاسی</h3>
+
+            <p>
+            عکاسی هنر ثبت لحظه های زیبا و ماندگار است.
+            در این رشته با نورپردازی،
+            ترکیب بندی، کار با دوربین و
+            ویرایش تصاویر آشنا می شوید
+            و نگاه هنری خود را پرورش می دهید.
+            </p>
+
+            <a href="photo.html" class="major-link">
+            مشاهده رشته ←
+            </a>
+
+        </div>
+
+
+
+        <div class="major-card">
+
+            <div class="major-number">03</div>
+
+            <h3>رشته معماری</h3>
+
+            <p>
+            معماری تلفیقی از هنر، علم و خلاقیت است.
+            در این رشته اصول طراحی فضا،
+            نقشه کشی، زیبایی شناسی و
+            شناخت ساختمان را یاد می گیرید
+            و ایده های خود را به طرح های ماندگار تبدیل می کنید.
+            </p>
+
+            <a href="memary.html" class="major-link">
+            مشاهده رشته ←
+            </a>
+
+        </div>
+
+
+
+        <div class="major-card">
+
+            <div class="major-number">04</div>
+
+            <h3>رشته طراحی دوخت</h3>
+
+            <p>
+            طراحی دوخت دنیایی از هنر و خلاقیت در پوشاک است.
+            در این رشته با طراحی لباس،
+            الگو سازی، شناخت پارچه و
+            دوخت حرفه ای آشنا می شوید
+            و می توانید ایده های خود را به لباس تبدیل کنید.
+            </p>
+
+            <a href="tarahi.html" class="major-link">
+            مشاهده رشته ←
+            </a>
+
+        </div>
+
+
+        <div class="major-card">
+
+            <div class="major-number">05</div>
+
+            <h3>رشته کودک</h3>
+
+            <p>
+            این رشته به شناخت دنیای کودکان
+            و پرورش استعدادهای آن ها می پردازد.
+            با اصول آموزش، بازی، خلاقیت،
+            رشد و ارتباط موثر با کودکان آشنا می شوید
+            و مهارت های آموزشی خود را تقویت می کنید.
+            </p>
+
+            <a href="child.html" class="major-link">
+            مشاهده رشته ←
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    
+
+    <div class="majors-footer">
+
+        <h2>آینده خود را با مهارت بسازید</h2>
+
+        <p>
+        انتخاب درست امروز، آغاز موفقیت فردای شماست.
+        با یادگیری مهارت های جدید، مسیر پیشرفت خود را هموار کنید.
+        </p>
+
+    </div>
+
+
+</section>
+
+</body>
+</html>
+
+

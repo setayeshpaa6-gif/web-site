@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معرفی رشته عکاسی | آکادمی هنر</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #fff;
+    color: #17243b;
+    line-height: 2;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 85px 0;
+}
+
+/* هدر */
+
+header {
+    background: #101c32;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px #0002;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #d8b56d;
+}
+
+nav {
+    display: flex;
+    gap: 23px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d8b56d;
+}
+
+.nav-btn {
+    background: #d8b56d;
+    color: #101c32;
+    padding: 8px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* بنر اصلی */
+
+.hero {
+    height: 570px;
+    background:
+    linear-gradient(90deg, #101c3266, #101c32ed),
+    url("https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1800");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    color: white;
+}
+
+.hero small {
+    color: #e2bf77;
+    font-size: 17px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    margin: 10px 0;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #e2bf77;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #eee;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.gold-btn {
+    display: inline-block;
+    background: #d8b56d;
+    color: #101c32;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.gold-btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+/* عنوان بخش ها */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title span {
+    color: #bd9141;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: #101c32;
+    margin: 8px 0;
+}
+
+.section-title p {
+    color: #777;
+}
+
+/* معرفی رشته */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-img {
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 12px 12px 0 #e8d5ac;
+}
+.about-img {
+    display: inline-block;
+    width: 100%;
+    max-width: 540px;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 2px solid #d6ad62;
+    border-radius: 18px;
+    background: #d6ad62;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    line-height: 0;
+}
+
+.about-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+
+.about-text p {
+    color: #697386;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* مهارت ها */
+
+.skills {
+    background: #f5f6f9;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 17px;
+    box-shadow: 0 5px 25px #0000000c;
+    border-bottom: 3px solid transparent;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    border-color: #d8b56d;
+    box-shadow: 0 12px 30px #0002;
+}
+
+.card .icon {
+    font-size: 42px;
+}
+
+.card h3 {
+    margin: 12px 0;
+    color: #101c32;
+}
+
+.card p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* بازار کار */
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.jobs-grid img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.jobs-text h2 {
+    font-size: 31px;
+    margin: 12px 0;
+}
+
+.jobs-text p {
+    color: #697386;
+}
+
+.jobs-text ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.jobs-text li {
+    padding: 5px 0;
+}
+
+.jobs-text li::before {
+    content: "✦";
+    color: #bd9141;
+    margin-left: 12px;
+}
+
+/* گالری */
+
+.gallery {
+    background: #f5f6f9;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 17px;
+    transition: .4s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+}
+
+/* بخش ثبت نام */
+
+.register {
+    background: #101c32;
+    text-align: center;
+    color: white;
+}
+
+.register h2 {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.register p {
+    color: #ddd;
+    margin-bottom: 25px;
+}
+
+/* فوتر */
+
+footer {
+    background: #091323;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer h3 {
+    color: #d8b56d;
+    font-size: 24px;
+}
+
+footer p {
+    color: #c5cad2;
+    font-size: 14px;
+}
+
+/* واکنش گرا */
+
+@media(max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+}
+
+@media(max-width: 650px) {
+    .nav {
+        justify-content: center;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        height: 470px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .about-grid,
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- هدر -->
+<header>
+    <div class="container nav">
+        <a href="#" class="logo">آکادمی <span>هنر</span></a>
+
+        <nav>
+            <a href="#home">خانه</a>
+            <a href="#about">معرفی رشته</a>
+            <a href="#skills">مهارت ها</a>
+            <a href="#jobs">بازار کار</a>
+            <a href="#gallery">گالری</a>
+        </nav>
+
+        <a href="#register" class="nav-btn">ثبت نام</a>
+    </div>
+</header>
+
+<!-- بنر -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+        <small>دنیای هنر و خلاقیت</small>
+        <h1>رشته <span>عکاسی</span></h1>
+
+        <p>
+            لحظه ها را ثبت کن، زیبایی ها را به تصویر بکش
+            و با هنر عکاسی داستان های ماندگار خلق کن.
+        </p>
+
+        <a href="#about" class="gold-btn">بیشتر بدانید</a>
+    </div>
+</section>
+
+<!-- معرفی -->
+<section id="about">
+    <div class="container about-grid">
+
+        <div class="about-img">
+            <img src="foa.png"
+            alt="دوربین عکاسی">
+        </div>
+
+        <div class="about-text">
+            <span style="color:#bd9141;font-weight:bold;">آشنایی با رشته</span>
+
+            <h2>عکاسی؛ هنر ثبت لحظه ها</h2>
+
+            <p>
+                عکاسی یکی از رشته های جذاب هنری است که با استفاده
+                از دوربین، نور، رنگ و خلاقیت، لحظه های زیبا را
+                به تصاویری ماندگار تبدیل می کند.
+            </p>
+
+            <p>
+                هنرجویان در این رشته با شناخت دوربین، اصول نورپردازی،
+                ترکیب بندی، عکاسی پرتره، طبیعت، تبلیغاتی و
+                ویرایش تصاویر آشنا می شوند.
+            </p>
+
+            <p>
+                عکاسی فرصتی برای بیان احساسات، نمایش نگاه هنری
+                و کشف زیبایی های دنیای اطراف است.
+            </p>
+
+            <a href="#skills" class="gold-btn">مهارت های آموزشی</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- مهارت ها -->
+<section class="skills" id="skills">
+    <div class="container">
+
+        <div class="section-title">
+            <span>مسیر یادگیری</span>
+            <h2>مهارت های رشته عکاسی</h2>
+            <p>در این رشته چه چیزهایی یاد می گیریم؟</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">📷</div>
+                <h3>شناخت دوربین</h3>
+                <p>آشنایی با انواع دوربین، لنز و تنظیمات حرفه ای.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>نورپردازی</h3>
+                <p>یادگیری استفاده از نور طبیعی و مصنوعی.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>ترکیب بندی</h3>
+                <p>شناخت رنگ، زاویه دید و اصول زیبایی شناسی تصویر.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🖥️</div>
+                <h3>ویرایش عکس</h3>
+                <p>اصلاح رنگ و نور و کار با نرم افزارهای ویرایش تصویر.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- بازار کار -->
+<section id="jobs">
+    <div class="container jobs-grid">
+
+        <div class="jobs-text">
+            <span style="color:#bd9141;font-weight:bold;">آینده شغلی</span>
+
+            <h2>فرصت های شغلی عکاسی</h2>
+
+            <p>
+                فارغ التحصیلان رشته عکاسی می توانند با توجه به
+                علاقه و مهارت خود در زمینه های مختلف فعالیت کنند.
+            </p>
+
+            <ul>
+                <li>عکاسی تبلیغاتی و صنعتی</li>
+                <li>عکاسی پرتره و مدلینگ</li>
+                <li>عکاسی خبری و مستند</li>
+                <li>عکاسی مراسم و رویدادها</li>
+                <li>فعالیت در آتلیه های عکاسی</li>
+                <li>تولید محتوای تصویری</li>
+            </ul>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=900"
+            alt="عکاس در حال عکاسی">
+        </div>
+
+    </div>
+</section>
+
+<!-- گالری -->
+<section class="gallery" id="gallery">
+    <div class="container">
+
+        <div class="section-title">
+            <span>دنیای تصاویر</span>
+            <h2>گالری هنر عکاسی</h2>
+            <p>هر عکس، داستانی برای گفتن دارد.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=700"
+            alt="عکاسی طبیعت">
+
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700"
+            alt="عکاسی پرتره">
+
+            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700"
+            alt="عکاسی منظره">
+        </div>
+
+    </div>
+</section>
+
+<!-- ثبت نام -->
+<section class="register" id="register">
+    <div class="container">
+        <span style="color:#d8b56d;">قدم اول را بردار</span>
+
+        <h2>خلاقیت خود را به تصویر بکش!</h2>
+
+        <p>
+            با یادگیری عکاسی، نگاه متفاوت خود را به جهان نشان بده.
+        </p>
+
+        <a href="contact.html" class="gold-btn">اطلاعات ثبت نام</a>
+    </div>
+</section>
+
+<!-- فوتر -->
+<footer>
+    <h3>آکادمی هنر</h3>
+    <p>آموزش، خلاقیت و ساختن آینده ای زیباتر</p>
+    <p>تمامی حقوق محفوظ است © ۱۴۰۵</p>
+</footer>
+
+</body>
+</html>

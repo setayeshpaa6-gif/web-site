@@ -1,0 +1,784 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCHITECT | استودیو معماری</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark: #1c211e;
+    --gold: #b69a70;
+    --cream: #f5f2eb;
+    --gray: #777970;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER */
+
+header {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(245,242,235,.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #d9d3c7;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 120px 10%;
+    color: white;
+    background:
+    linear-gradient(90deg,rgba(15,20,17,.9),rgba(15,20,17,.2)),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800')
+    center/cover;
+}
+
+.hero-content {
+    max-width: 650px;
+    animation: appear 1.2s ease;
+}
+
+.hero small {
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-size: clamp(40px,6vw,78px);
+    line-height: 1.6;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.hero p {
+    color: #ddd;
+    line-height: 2.3;
+    max-width: 500px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 35px;
+    background: var(--gold);
+    color: white;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    color: var(--dark);
+    transform: translateY(-5px);
+}
+
+/* SECTION TITLE */
+
+section {
+    padding: 110px 10%;
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading span {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.section-heading p {
+    color: var(--gray);
+    margin-top: 10px;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 530px;
+    object-fit: cover;
+}
+
+.about-image::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 1px solid var(--gold);
+    top: 30px;
+    right: -20px;
+    z-index: -1;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--gray);
+    line-height: 2.4;
+    margin-bottom: 15px;
+}
+
+.stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 30px;
+}
+
+.stats h3 {
+    color: var(--gold);
+    font-size: 32px;
+}
+
+.stats p {
+    font-size: 12px;
+}
+
+/* PROJECTS */
+
+.projects {
+    background: #e9e5dc;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px #00000015;
+}
+
+.project-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.project-card:hover img {
+    transform: scale(1.07);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info span {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.project-info p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* SERVICES */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.service-card {
+    padding: 40px 25px;
+    border: 1px solid #d8d1c5;
+    transition: .4s;
+}
+
+.service-card:hover {
+    background: var(--dark);
+    color: white;
+    transform: translateY(-8px);
+}
+
+.service-card .icon {
+    font-size: 38px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 2.2;
+}
+
+.service-card:hover p {
+    color: #ddd;
+}
+
+/* ARCHITECTURE QUOTE */
+
+.quote {
+    text-align: center;
+    background:
+    linear-gradient(#1c211edb,#1c211edb),
+    url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600')
+    center/cover;
+    color: white;
+}
+
+.quote h2 {
+    font-size: 35px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 2;
+}
+
+.quote p {
+    color: var(--gold);
+    margin-top: 20px;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery img:hover {
+    filter: brightness(.7);
+}
+
+.gallery img:first-child {
+    grid-row: span 2;
+}
+
+/* CONTACT */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: var(--gray);
+    margin: 15px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #d8d1c5;
+    background: transparent;
+    font-family: inherit;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--gold);
+}
+
+.contact-form textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.contact-form button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.logo {
+    animation: float 4s infinite;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+    .project-grid,
+    .services-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+
+    header {
+        height: 75px;
+        padding: 0 6%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 100%;
+        background: var(--cream);
+        padding: 25px;
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #menu-toggle:checked ~ nav {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 750px;
+        padding: 120px 7%;
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+
+    .project-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .about-image::after {
+        right: -8px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 160px;
+    }
+
+    .gallery img:first-child {
+        grid-row: span 2;
+    }
+
+    .stats {
+        gap: 20px;
+    }
+
+    .quote h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ARCH<span>.</span>STUDIO</div>
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn">☰</label>
+
+    <nav>
+        <a href="#home">صفحه اصلی</a>
+        <a href="#about">درباره ما</a>
+        <a href="#projects">پروژه‌ها</a>
+        <a href="#services">خدمات</a>
+        <a href="#gallery">گالری</a>
+        <a href="#contact">تماس با ما</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+    <div class="hero-content">
+        <small>ARCHITECTURE • ART • DESIGN</small>
+
+        <h1>
+            هنر معماری،
+            <br>
+            خلق زیبایی
+        </h1>
+
+        <p>
+            معماری تنها ساختن یک فضا نیست؛
+            بلکه خلق تجربه‌ای ماندگار از زیبایی،
+            احساس، هندسه و خلاقیت است.
+        </p>
+
+        <a href="#projects" class="btn">مشاهده پروژه‌ها</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000" alt="طراحی معماری">
+    </div>
+
+    <div class="about-text">
+        <div class="section-heading">
+            <span>ABOUT OUR STUDIO</span>
+            <h2>معماری، فراتر از یک هنر</h2>
+        </div>
+
+        <p>
+            ما به معماری به عنوان ترکیبی از هنر،
+            علم و خلاقیت نگاه می‌کنیم.
+        </p>
+
+        <p>
+            هدف ما خلق فضاهایی است که علاوه بر
+            زیبایی بصری، عملکردی هوشمندانه و
+            هماهنگ با نیازهای انسان داشته باشند.
+        </p>
+
+        <div class="stats">
+            <div>
+                <h3>25+</h3>
+                <p>پروژه طراحی</p>
+            </div>
+
+            <div>
+                <h3>12+</h3>
+                <p>سال تجربه</p>
+            </div>
+
+            <div>
+                <h3>18+</h3>
+                <p>افتخار معماری</p>
+            </div>
+        </div>
+
+        <a href="#contact" class="btn">ارتباط با ما</a>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+    <div class="section-heading">
+        <span>OUR PORTFOLIO</span>
+        <h2>پروژه‌های منتخب</h2>
+        <p>نگاهی به دنیای طراحی و خلاقیت معماری</p>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="ویلای مدرن">
+            <div class="project-info">
+                <span>RESIDENTIAL DESIGN</span>
+                <h3>ویلای مدرن</h3>
+                <p>طراحی مسکونی با رویکرد مینیمال و مدرن</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800" alt="طراحی داخلی">
+            <div class="project-info">
+                <span>INTERIOR DESIGN</span>
+                <h3>طراحی داخلی</h3>
+                <p>ترکیب متریال طبیعی و نورپردازی هنرمندانه</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="معماری معاصر">
+            <div class="project-info">
+                <span>CONTEMPORARY</span>
+                <h3>معماری معاصر</h3>
+                <p>خلق فرم‌های خلاقانه و هندسه پویا</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-heading">
+        <span>WHAT WE DO</span>
+        <h2>خدمات تخصصی معماری</h2>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="icon">⌂</div>
+            <h3>طراحی معماری</h3>
+            <p>طراحی پلان، نما، مقاطع و نقشه‌های اجرایی ساختمان.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">◈</div>
+            <h3>طراحی داخلی</h3>
+            <p>طراحی فضاهای داخلی با توجه به زیبایی و عملکرد.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">▧</div>
+            <h3>مدل‌سازی سه‌بعدی</h3>
+            <p>خلق مدل‌های سه‌بعدی و تصاویر واقع‌گرایانه معماری.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">✧</div>
+            <h3>طراحی نما</h3>
+            <p>طراحی نماهای مدرن، کلاسیک و مینیمال.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">⌗</div>
+            <h3>طراحی منظر</h3>
+            <p>طراحی محوطه، فضای سبز و ارتباط طبیعت با معماری.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">△</div>
+            <h3>کانسپت معماری</h3>
+            <p>ایده‌پردازی، دیاگرام و شکل‌گیری مفهوم اولیه پروژه.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+    <h2>
+        «معماری موسیقی منجمد است؛
+        هنری که فضا را به احساس تبدیل می‌کند.»
+    </h2>
+    <p>ARCHITECTURE IS THE ART OF SPACE</p>
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-heading">
+        <span>VISUAL INSPIRATION</span>
+        <h2>گالری معماری</h2>
+        <p>زیبایی در جزئیات، فرم و نور</p>
+    </div>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900" alt="فضای معماری">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=700" alt="طراحی داخلی">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700" alt="دکوراسیون">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700" alt="ویلای مدرن">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=700" alt="معماری مدرن">
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div class="contact-info">
+            <div class="section-heading">
+                <span>CONTACT US</span>
+                <h2>بیایید چیزی زیبا خلق کنیم</h2>
+            </div>
+
+            <p>آدرس:ایران ،ورزنه</p>
+            <p>✉ ایمیل: setayeshpayandeh.com</p>
+            <p>☎ تلفن:03146482251</p>
+
+            <p>
+                برای همکاری، مشاوره و شروع یک پروژه
+                معماری با ما در ارتباط باشید.
+            </p>
+        </div>
+
+        <form class="contact-form" action="#" method="get">
+            <input type="text" placeholder="نام و نام خانوادگی" required>
+            <input type="email" placeholder="ایمیل شما" required>
+            <input type="text" placeholder="موضوع پیام">
+            <textarea placeholder="پیام خود را بنویسید..." required></textarea>
+            <button type="submit" class="btn">ارسال پیام</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="logo">ARCH<span>.</span>STUDIO</div>
+    <p>طراحی شده با عشق به معماری و هنر</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

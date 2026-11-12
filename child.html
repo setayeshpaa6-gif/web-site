@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای زیبای تربیت کودک</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+ --pink:#e99caf;
+ --rose:#bd718b;
+ --cream:#fff9f3;
+ --purple:#b8a5d9;
+ --green:#a9c9ae;
+ --dark:#544550;
+ --text:#756772;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ scroll-behavior:smooth;
+}
+
+body{
+ font-family:'Vazirmatn',sans-serif;
+ background:var(--cream);
+ color:var(--dark);
+}
+
+a{
+ text-decoration:none;
+ color:inherit;
+}
+
+.container{
+ width:88%;
+ max-width:1200px;
+ margin:auto;
+}
+
+/* منو */
+
+header{
+ position:fixed;
+ top:0;
+ width:100%;
+ z-index:100;
+ background:#fffaf5eF;
+ backdrop-filter:blur(15px);
+ box-shadow:0 3px 20px #8e647211;
+}
+
+nav{
+ height:78px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.logo{
+ font-size:23px;
+ font-weight:900;
+ color:var(--rose);
+}
+
+.logo span{
+ color:var(--purple);
+}
+
+.menu{
+ display:flex;
+ list-style:none;
+ gap:27px;
+}
+
+.menu a{
+ font-size:14px;
+ color:var(--dark);
+ transition:.3s;
+}
+
+.menu a:hover{
+ color:var(--rose);
+}
+
+.menu-btn{
+ display:none;
+}
+
+/* صفحه اصلی */
+
+.hero{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ background:
+ linear-gradient(90deg,#fff8f0eF,#fff8f0a0),
+ url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1800&q=85')
+ center/cover;
+ position:relative;
+ overflow:hidden;
+}
+
+.hero::before{
+ content:"";
+ position:absolute;
+ width:300px;
+ height:300px;
+ border-radius:50%;
+ background:#eab4c5;
+ filter:blur(100px);
+ opacity:.35;
+ top:10%;
+ right:-100px;
+}
+
+.hero-content{
+ position:relative;
+ max-width:650px;
+ padding-top:80px;
+ animation:show 1s ease;
+}
+
+.small-title{
+ color:var(--rose);
+ font-size:15px;
+ margin-bottom:20px;
+}
+
+.hero h1{
+ font-size:clamp(38px,6vw,68px);
+ font-weight:900;
+ line-height:1.6;
+}
+
+.hero h1 span{
+ color:var(--rose);
+}
+
+.hero p{
+ line-height:2.5;
+ color:var(--text);
+ margin:20px 0 30px;
+ font-size:16px;
+}
+
+.btn{
+ display:inline-block;
+ padding:13px 28px;
+ border-radius:30px;
+ background:var(--rose);
+ color:white;
+ font-weight:700;
+ transition:.3s;
+ box-shadow:0 8px 25px #bd718b40;
+}
+
+.btn:hover{
+ transform:translateY(-5px);
+ background:#a75c78;
+}
+
+/* عنوان بخش ها */
+
+.section{
+ padding:95px 0;
+}
+
+.section-title{
+ text-align:center;
+ margin-bottom:50px;
+}
+
+.section-title h2{
+ font-size:34px;
+ font-weight:900;
+}
+
+.section-title h2 span{
+ color:var(--rose);
+}
+
+.section-title p{
+ color:var(--text);
+ margin-top:12px;
+ line-height:2;
+}
+
+/* معرفی */
+
+.about{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:45px;
+}
+
+.about img{
+ width:100%;
+ height:390px;
+ object-fit:cover;
+ border-radius:35px;
+ box-shadow:15px 15px 0 #ead6df;
+}
+
+.about-text h2{
+ font-size:30px;
+ margin-bottom:20px;
+}
+
+.about-text p{
+ color:var(--text);
+ line-height:2.6;
+ margin-bottom:20px;
+}
+
+/* کارت ها */
+
+.cards{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:25px;
+}
+
+.card{
+ padding:30px 25px;
+ background:white;
+ border-radius:25px;
+ text-align:center;
+ border:1px solid #f1e4e8;
+ box-shadow:0 10px 35px #8e647210;
+ transition:.35s;
+}
+
+.card:hover{
+ transform:translateY(-9px);
+ box-shadow:0 18px 40px #bd718b25;
+}
+
+.icon{
+ width:75px;
+ height:75px;
+ display:grid;
+ place-items:center;
+ background:#fff0f3;
+ border-radius:50%;
+ font-size:35px;
+ margin:0 auto 20px;
+}
+
+.card:nth-child(2) .icon{
+ background:#f0eafb;
+}
+
+.card:nth-child(3) .icon{
+ background:#eaf5ec;
+}
+
+.card h3{
+ color:var(--rose);
+ font-size:19px;
+ margin-bottom:13px;
+}
+
+.card p{
+ color:var(--text);
+ font-size:14px;
+ line-height:2.3;
+}
+
+/* اهمیت تربیت */
+
+.importance{
+ background:#f8edf0;
+}
+
+.importance-box{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:20px;
+}
+
+.item{
+ background:white;
+ padding:25px 15px;
+ border-radius:20px;
+ text-align:center;
+}
+
+.item strong{
+ display:block;
+ color:var(--rose);
+ font-size:18px;
+ margin-bottom:10px;
+}
+
+.item p{
+ font-size:13px;
+ color:var(--text);
+ line-height:2.1;
+}
+
+/* مهارت ها */
+
+.skills{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:22px;
+}
+
+.skill{
+ background:white;
+ border-radius:18px;
+ padding:20px;
+ box-shadow:0 5px 20px #00000008;
+}
+
+.skill h3{
+ font-size:15px;
+ margin-bottom:12px;
+}
+
+.bar{
+ height:9px;
+ border-radius:20px;
+ background:#f0e6eb;
+ overflow:hidden;
+}
+
+.bar span{
+ display:block;
+ height:100%;
+ background:linear-gradient(90deg,#e8a0b4,#b7a3d9);
+ border-radius:20px;
+}
+
+/* گالری */
+
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.gallery img{
+ width:100%;
+ height:250px;
+ object-fit:cover;
+ border-radius:25px;
+ transition:.4s;
+}
+
+.gallery img:hover{
+ transform:scale(1.04);
+}
+
+/* نقل قول */
+
+.quote{
+ background:linear-gradient(120deg,#b97891,#b4a0ce);
+ color:white;
+ text-align:center;
+ padding:75px 25px;
+ border-radius:30px;
+}
+
+.quote h2{
+ font-size:30px;
+ margin-bottom:20px;
+}
+
+.quote p{
+ line-height:2.5;
+ max-width:700px;
+ margin:auto;
+}
+
+/* تماس */
+
+.contact{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:40px;
+}
+
+.contact-info p{
+ line-height:3;
+ color:var(--text);
+}
+
+.contact-form input,
+.contact-form textarea{
+ width:100%;
+ padding:15px;
+ border:1px solid #eedde4;
+ border-radius:15px;
+ background:white;
+ font-family:inherit;
+ margin-bottom:15px;
+ outline:none;
+ color:var(--dark);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+ border-color:var(--rose);
+}
+
+.contact-form textarea{
+ height:130px;
+ resize:vertical;
+}
+
+.contact-form button{
+ border:none;
+ font-family:inherit;
+ cursor:pointer;
+}
+
+/* پاورقی */
+
+footer{
+ text-align:center;
+ padding:35px 15px;
+ background:#f1e5e9;
+ color:var(--text);
+ font-size:13px;
+ line-height:2.5;
+}
+
+footer span{
+ color:var(--rose);
+}
+
+@keyframes show{
+ from{
+ opacity:0;
+ transform:translateY(30px);
+ }
+ to{
+ opacity:1;
+ transform:translateY(0);
+ }
+}
+
+/* موبایل */
+
+@media(max-width:850px){
+
+ .menu{
+ display:none;
+ position:absolute;
+ top:78px;
+ right:0;
+ width:100%;
+ background:#fffaf5;
+ flex-direction:column;
+ text-align:center;
+ padding:25px;
+ gap:22px;
+ box-shadow:0 10px 20px #00000010;
+ }
+
+ .menu-btn{
+ display:block;
+ }
+
+ .menu-btn label{
+ font-size:28px;
+ color:var(--rose);
+ cursor:pointer;
+ }
+
+ #menu-toggle:checked ~ .menu{
+ display:flex;
+ }
+
+ .about,.contact{
+ grid-template-columns:1fr;
+ }
+
+ .cards{
+ grid-template-columns:1fr 1fr;
+ }
+
+ .importance-box{
+ grid-template-columns:1fr 1fr;
+ }
+
+ .gallery{
+ grid-template-columns:1fr 1fr;
+ }
+}
+
+@media(max-width:550px){
+
+ .cards,.gallery,.skills{
+ grid-template-columns:1fr;
+ }
+
+ .hero h1{
+ font-size:39px;
+ }
+
+ .section{
+ padding:70px 0;
+ }
+
+ .section-title h2{
+ font-size:26px;
+ }
+
+ .about img{
+ height:270px;
+ }
+
+ .quote h2{
+ font-size:24px;
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="container">
+
+<a href="#home" class="logo">
+دنیای <span>کودکی</span> 🌸
+</a>
+
+<div class="menu-btn">
+<input type="checkbox" id="menu-toggle" hidden>
+<label for="menu-toggle">☰</label>
+
+<ul class="menu">
+<li><a href="#home">خانه</a></li>
+<li><a href="#about">معرفی رشته</a></li>
+<li><a href="#goals">اهداف تربیتی</a></li>
+<li><a href="#skills">مهارت‌ها</a></li>
+<li><a href="#gallery">گالری</a></li>
+<li><a href="#contact">ارتباط با ما</a></li>
+</ul>
+</div>
+
+</nav>
+</header>
+
+<!-- صفحه اصلی -->
+
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-content">
+
+<div class="small-title">
+🌷 به دنیای رنگارنگ کودکان خوش آمدید
+</div>
+
+<h1>
+دنیای کوچک کودکان،
+<span>آینده بزرگ جهان</span>
+</h1>
+
+<p>
+کودکی زیباترین فصل زندگی است.
+با عشق، آموزش و تربیت صحیح می‌توانیم
+دنیایی سرشار از شادی، خلاقیت و امید
+برای نسل آینده بسازیم.
+</p>
+
+<a href="#about" class="btn">با دنیای ما آشنا شو 🌸</a>
+
+</div>
+</div>
+</section>
+
+<!-- معرفی رشته -->
+
+<section class="section container" id="about">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=85" alt="کودکان">
+
+<div class="about-text">
+
+<h2>آشنایی با رشته <span style="color:#bd718b">تربیت کودک</span></h2>
+
+<p>
+رشته تربیت کودک به شناخت دنیای کودکان،
+نیازهای جسمی و روانی، مراحل رشد و روش‌های
+صحیح آموزش و پرورش آن‌ها می‌پردازد.
+</p>
+
+<p>
+در این رشته یاد می‌گیریم چگونه محیطی امن،
+شاد و خلاقانه برای رشد استعدادها و توانایی‌های
+کودکان فراهم کنیم.
+</p>
+
+<a href="#goals" class="btn">بیشتر بدانید</a>
+
+</div>
+</div>
+</section>
+
+<!-- اهداف -->
+
+<section class="section" id="goals">
+
+<div class="container">
+
+<div class="section-title">
+<h2>اهداف <span>تربیت کودک</span></h2>
+<p>هر کودک دنیایی از استعدادها و توانایی‌های منحصر‌به‌فرد است.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>رشد ذهنی</h3>
+<p>تقویت تفکر، کنجکاوی، خلاقیت و قدرت یادگیری کودکان.</p>
+</div>
+
+<div class="card">
+<div class="icon">💗</div>
+<h3>رشد عاطفی</h3>
+<p>پرورش احساسات سالم، اعتمادبه‌نفس و شناخت هیجان‌ها.</p>
+</div>
+
+<div class="card">
+<div class="icon">🤝</div>
+<h3>رشد اجتماعی</h3>
+<p>یادگیری همکاری، دوستی، مسئولیت‌پذیری و ارتباط با دیگران.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏃</div>
+<h3>رشد جسمانی</h3>
+<p>توجه به تحرک، بازی، سلامت و مهارت‌های حرکتی.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>خلاقیت و هنر</h3>
+<p>پرورش تخیل از طریق نقاشی، موسیقی، قصه و بازی.</p>
+</div>
+
+<div class="card">
+<div class="icon">🌱</div>
+<h3>استقلال فردی</h3>
+<p>تقویت توانایی تصمیم‌گیری و انجام کارهای متناسب با سن کودک.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- اهمیت تربیت -->
+
+<section class="section importance">
+
+<div class="container">
+
+<div class="section-title">
+<h2>چرا <span>دوران کودکی</span> مهم است؟</h2>
+<p>سال‌های اولیه زندگی نقش مهمی در شکل‌گیری شخصیت انسان دارند.</p>
+</div>
+
+<div class="importance-box">
+
+<div class="item">
+<strong>🌼 شناخت خود</strong>
+<p>کمک به شناخت توانایی‌ها و احساسات</p>
+</div>
+
+<div class="item">
+<strong>📚 یادگیری</strong>
+<p>ایجاد علاقه به کشف و یادگیری</p>
+</div>
+
+<div class="item">
+<strong>💞 محبت</strong>
+<p>تجربه امنیت و ارتباط عاطفی سالم</p>
+</div>
+
+<div class="item">
+<strong>🌈 شادی</strong>
+<p>فراهم کردن فرصت بازی و تجربه‌های شاد</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- مهارت ها -->
+
+<section class="section container" id="skills">
+
+<div class="section-title">
+<h2>مهارت‌های <span>مربی کودک</span></h2>
+<p>یک مربی خوب، همراه رشد و شکوفایی کودکان است.</p>
+</div>
+
+<div class="skills">
+
+<div class="skill">
+<h3>ارتباط مؤثر با کودک</h3>
+<div class="bar"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill">
+<h3>خلاقیت و قصه‌گویی</h3>
+<div class="bar"><span style="width:90%"></span></div>
+</div>
+
+<div class="skill">
+<h3>صبوری و همدلی</h3>
+<div class="bar"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill">
+<h3>طراحی فعالیت‌های آموزشی</h3>
+<div class="bar"><span style="width:85%"></span></div>
+</div>
+
+</div>
+</section>
+
+<!-- گالری -->
+
+<section class="section container" id="gallery">
+
+<div class="section-title">
+<h2>گالری <span>دنیای کودکان</span></h2>
+<p>لبخندها، بازی‌ها و لحظه‌های شیرین کودکی 🌷</p>
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1472162314594-eca3c3d90f86?auto=format&fit=crop&w=800&q=85" alt="بازی کودکان">
+
+<img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=85" alt="طبیعت و کودکی">
+
+<img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?auto=format&fit=crop&w=800&q=85" alt="فعالیت کودک">
+
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85" alt="آموزش کودکان">
+
+<img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=800&q=85" alt="کودکان">
+
+<img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=800&q=85" alt="یادگیری کودک">
+
+</div>
+</section>
+
+<!-- نقل قول -->
+
+<section class="section container">
+
+<div class="quote">
+
+<h2>«هر کودک، یک جهان پر از شگفتی است» 🌸</h2>
+
+<p>
+با عشق آموزش بدهیم، با صبوری همراهی کنیم
+و با مهربانی به کودکان کمک کنیم تا
+زیباترین نسخه خودشان باشند.
+</p>
+
+</div>
+</section>
+
+<!-- ارتباط -->
+
+<section class="section container" id="contact">
+
+<div class="section-title">
+<h2>ارتباط با <span>ما</span></h2>
+<p>خوشحال می‌شویم نظرات و پیشنهادهای شما را بشنویم.</p>
+</div>
+
+<div class="contact">
+
+<div class="contact-info">
+<h2>با ما در ارتباط باشید 🌷</h2>
+
+<p>📧 ایمیل: setayeshpayandeh.com</p>
+<p>📱 تلفن: 03146482251</p>
+<p>📍 آدرس: ایران، ورزنه</p>
+
+<p>
+آینده‌ای روشن با عشق به کودکان آغاز می‌شود.
+از همراهی شما سپاسگزاریم.
+</p>
+</div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="نام و نام خانوادگی">
+
+<input type="email" placeholder="ایمیل شما">
+
+<textarea placeholder="پیام خود را بنویسید..."></textarea>
+
+<button type="button" class="btn">ارسال پیام 🌸</button>
+
+</form>
+
+</div>
+</section>
+
+<footer>
+<p>طراحی شده با عشق به دنیای کودکان 💗</p>
+<p>تمامی حقوق محفوظ است ©</p>
+<span>دنیای زیبای تربیت کودک</span>
+</footer>
+
+</body>
+</html>

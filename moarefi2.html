@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای مهندسی کامپیوتر</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+ --bg:#080b19;
+ --purple:#9b72ff;
+ --blue:#36c9ff;
+ --white:#f7f5ff;
+ --muted:#a7a8c2;
+}
+
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ scroll-behavior:smooth;
+}
+
+body {
+ font-family:'Vazirmatn',sans-serif;
+ background:var(--bg);
+ color:var(--white);
+ overflow-x:hidden;
+}
+
+a {text-decoration:none;color:inherit}
+.container {width:88%;max-width:1200px;margin:auto}
+
+/* نوار منو */
+header {
+ position:fixed;
+ top:0;
+ width:100%;
+ z-index:100;
+ background:rgba(8,11,25,.82);
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid #ffffff12;
+}
+
+nav {
+ height:80px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.logo {
+ font-size:25px;
+ font-weight:900;
+ color:var(--blue);
+}
+
+.logo span {color:var(--purple)}
+
+.menu {
+ display:flex;
+ list-style:none;
+ gap:30px;
+}
+
+.menu a {
+ color:#ddd;
+ font-size:14px;
+ transition:.3s;
+}
+
+.menu a:hover {color:var(--blue)}
+
+.menu-btn {display:none}
+
+/* صفحه اصلی */
+.hero {
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ position:relative;
+ background:
+ linear-gradient(90deg,rgba(8,11,25,.92),rgba(8,11,25,.65)),
+ url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85')
+ center/cover;
+}
+
+.hero::before {
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ background:var(--purple);
+ filter:blur(170px);
+ opacity:.25;
+ top:20%;
+ right:5%;
+}
+
+.hero-content {
+ position:relative;
+ max-width:720px;
+ padding-top:90px;
+ animation:appear 1.2s ease;
+}
+
+.tag {
+ color:var(--blue);
+ letter-spacing:1px;
+ font-size:14px;
+ margin-bottom:22px;
+}
+
+.hero h1 {
+ font-size:clamp(38px,6vw,75px);
+ line-height:1.5;
+ font-weight:900;
+}
+
+.hero h1 span {
+ background:linear-gradient(90deg,var(--blue),var(--purple));
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.hero p {
+ color:#c4c5d7;
+ line-height:2.3;
+ margin:20px 0 30px;
+ max-width:600px;
+}
+
+.btn {
+ display:inline-block;
+ padding:13px 28px;
+ border-radius:12px;
+ background:linear-gradient(110deg,#7461ff,#27b9ef);
+ color:white;
+ font-weight:700;
+ box-shadow:0 8px 35px #765cff40;
+ transition:.3s;
+}
+
+.btn:hover {transform:translateY(-5px);box-shadow:0 12px 40px #27b9ef55}
+
+/* عنوان بخش ها */
+.section {padding:100px 0}
+
+.section-title {
+ text-align:center;
+ margin-bottom:55px;
+}
+
+.section-title h2 {
+ font-size:34px;
+ font-weight:900;
+}
+
+.section-title h2 span {color:var(--blue)}
+
+.section-title p {
+ color:var(--muted);
+ margin-top:12px;
+}
+
+/* درباره */
+.about {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:50px;
+}
+
+.about img {
+ width:100%;
+ height:390px;
+ object-fit:cover;
+ border-radius:25px;
+ border:1px solid #8d76ff55;
+ box-shadow:0 20px 60px #0008;
+}
+
+.about-text h2 {font-size:30px;margin-bottom:20px}
+.about-text p {color:var(--muted);line-height:2.4;margin-bottom:20px}
+
+/* کارت ها */
+.cards {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:25px;
+}
+
+.card {
+ padding:30px 25px;
+ border:1px solid #ffffff15;
+ border-radius:20px;
+ background:linear-gradient(145deg,#171b34,#0d1022);
+ transition:.35s;
+}
+
+.card:hover {
+ transform:translateY(-10px);
+ border-color:var(--purple);
+ box-shadow:0 15px 45px #7958ff25;
+}
+
+.card .icon {font-size:38px;margin-bottom:18px}
+.card h3 {font-size:19px;margin-bottom:14px;color:var(--blue)}
+.card p {font-size:14px;color:var(--muted);line-height:2.2}
+
+/* مهارت ها */
+.skills {
+ background:linear-gradient(120deg,#11142c,#17102c);
+}
+
+.skill-list {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:28px;
+}
+
+.skill-info {
+ display:flex;
+ justify-content:space-between;
+ margin-bottom:12px;
+ font-size:14px;
+}
+
+.progress {
+ height:10px;
+ background:#292b46;
+ border-radius:20px;
+ overflow:hidden;
+}
+
+.progress span {
+ display:block;
+ height:100%;
+ background:linear-gradient(90deg,var(--purple),var(--blue));
+ border-radius:20px;
+ animation:fill 2s ease;
+}
+
+/* تصاویر */
+.gallery {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.gallery img {
+ width:100%;
+ height:240px;
+ object-fit:cover;
+ border-radius:18px;
+ transition:.4s;
+}
+
+.gallery img:hover {
+ transform:scale(1.04);
+ filter:brightness(1.15);
+}
+
+/* بخش پایانی */
+.banner {
+ text-align:center;
+ padding:75px 25px;
+ border-radius:25px;
+ background:
+ linear-gradient(120deg,#25205bdb,#103e60db),
+ url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=85')
+ center/cover;
+}
+
+.banner h2 {font-size:32px;margin-bottom:20px}
+.banner p {color:#ddd;line-height:2.2;margin-bottom:25px}
+
+/* ارتباط */
+.contact {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:40px;
+}
+
+.contact-info p {
+ color:var(--muted);
+ line-height:2.5;
+ margin-bottom:12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+ width:100%;
+ padding:15px;
+ margin-bottom:15px;
+ border:1px solid #ffffff20;
+ border-radius:12px;
+ background:#15182d;
+ color:white;
+ font-family:inherit;
+ outline:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {border-color:var(--blue)}
+
+.contact-form textarea {height:130px;resize:vertical}
+
+.contact-form button {
+ border:none;
+ font-family:inherit;
+ cursor:pointer;
+}
+
+/* پاورقی */
+footer {
+ padding:30px;
+ text-align:center;
+ border-top:1px solid #ffffff15;
+ color:var(--muted);
+ font-size:13px;
+}
+
+footer span {color:var(--blue)}
+
+@keyframes appear {
+ from {opacity:0;transform:translateY(35px)}
+ to {opacity:1;transform:translateY(0)}
+}
+
+@keyframes fill {
+ from {width:0}
+}
+
+/* موبایل */
+@media(max-width:850px) {
+ .menu {
+ display:none;
+ position:absolute;
+ top:80px;
+ right:0;
+ width:100%;
+ padding:25px;
+ background:#101329;
+ flex-direction:column;
+ text-align:center;
+ gap:22px;
+ }
+ .menu-btn {display:block}
+ .menu-btn label {
+ font-size:28px;
+ color:var(--blue);
+ cursor:pointer;
+ }
+ #menu-toggle:checked ~ .menu {display:flex}
+ .about,.contact {grid-template-columns:1fr}
+ .cards {grid-template-columns:1fr 1fr}
+ .gallery {grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:550px) {
+ .cards,.gallery,.skill-list {grid-template-columns:1fr}
+ .hero h1 {font-size:38px}
+ .section {padding:70px 0}
+ .section-title h2 {font-size:27px}
+ .about img {height:280px}
+ .banner h2 {font-size:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <nav class="container">
+  <a class="logo" href="#home">فناوری<span> نوین</span></a>
+
+  <div class="menu-btn">
+   <input type="checkbox" id="menu-toggle" hidden>
+   <label for="menu-toggle">☰</label>
+
+   <ul class="menu">
+    <li><a href="#home">خانه</a></li>
+    <li><a href="#about">معرفی رشته</a></li>
+    <li><a href="#fields">گرایش‌ها</a></li>
+    <li><a href="#skills">مهارت‌ها</a></li>
+    <li><a href="#gallery">گالری</a></li>
+    <li><a href="#contact">ارتباط با ما</a></li>
+   </ul>
+  </div>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <div class="container">
+  <div class="hero-content">
+   <div class="tag">به دنیای شگفت‌انگیز فناوری خوش آمدید</div>
+   <h1>
+    آینده را با <span>دانش کامپیوتر</span> بساز
+   </h1>
+   <p>
+    اینجا دنیایی از خلاقیت، نوآوری و فناوری است؛
+    جایی که ایده‌ها به واقعیت تبدیل می‌شوند و
+    مرزهای دنیای دیجیتال گسترش پیدا می‌کنند.
+   </p>
+   <a href="#about" class="btn">شروع ماجراجویی ←</a>
+  </div>
+ </div>
+</section>
+
+<section class="section container" id="about">
+ <div class="about">
+  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85" alt="مهندسی کامپیوتر">
+  <div class="about-text">
+   <h2>درباره رشته <span style="color:#36c9ff">مهندسی کامپیوتر</span></h2>
+   <p>
+    مهندسی کامپیوتر یکی از جذاب‌ترین رشته‌های دنیای امروز است.
+    در این رشته با برنامه‌نویسی، طراحی نرم‌افزار،
+    هوش مصنوعی، شبکه و سخت‌افزار آشنا می‌شویم.
+   </p>
+   <p>
+    این رشته فرصتی برای تبدیل خلاقیت و ایده‌های ذهنی
+    به ابزارها و فناوری‌هایی است که زندگی انسان را بهتر می‌کنند.
+   </p>
+   <a href="#fields" class="btn">بیشتر بدانید</a>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="fields">
+ <div class="container">
+  <div class="section-title">
+   <h2>دنیای <span>گرایش‌های کامپیوتر</span></h2>
+   <p>با شاخه‌های جذاب این رشته آشنا شوید</p>
+  </div>
+
+  <div class="cards">
+   <div class="card">
+    <div class="icon">💻</div>
+    <h3>برنامه‌نویسی</h3>
+    <p>ساخت نرم‌افزارها و برنامه‌های کاربردی با زبان‌های مختلف برنامه‌نویسی.</p>
+   </div>
+
+   <div class="card">
+    <div class="icon">🤖</div>
+    <h3>هوش مصنوعی</h3>
+    <p>طراحی سیستم‌های هوشمند و ساخت ماشین‌هایی که توانایی یادگیری دارند.</p>
+   </div>
+
+   <div class="card">
+    <div class="icon">🌐</div>
+    <h3>شبکه و اینترنت</h3>
+    <p>برقراری ارتباط میان سیستم‌ها و مدیریت دنیای گسترده شبکه‌های کامپیوتری.</p>
+   </div>
+
+   <div class="card">
+    <div class="icon">🔐</div>
+    <h3>امنیت سایبری</h3>
+    <p>حفاظت از اطلاعات و مقابله با تهدیدها و حملات دنیای دیجیتال.</p>
+   </div>
+
+   <div class="card">
+    <div class="icon">🧠</div>
+    <h3>علم داده</h3>
+    <p>تحلیل اطلاعات و کشف الگوهای ارزشمند برای تصمیم‌گیری هوشمندانه.</p>
+   </div>
+
+   <div class="card">
+    <div class="icon">⚙️</div>
+    <h3>سخت‌افزار</h3>
+    <p>شناخت قطعات کامپیوتر و طراحی و توسعه سیستم‌های پردازشی.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section skills" id="skills">
+ <div class="container">
+  <div class="section-title">
+   <h2>مهارت‌های <span>دنیای دیجیتال</span></h2>
+   <p>مهارت‌هایی که مسیر موفقیت را هموار می‌کنند</p>
+  </div>
+
+  <div class="skill-list">
+   <div>
+    <div class="skill-info"><span>برنامه‌نویسی</span><span>۹۰٪</span></div>
+    <div class="progress"><span style="width:90%"></span></div>
+   </div>
+
+   <div>
+    <div class="skill-info"><span>طراحی وب</span><span>۸۵٪</span></div>
+    <div class="progress"><span style="width:85%"></span></div>
+   </div>
+
+   <div>
+    <div class="skill-info"><span>هوش مصنوعی</span><span>۸۰٪</span></div>
+    <div class="progress"><span style="width:80%"></span></div>
+   </div>
+
+   <div>
+    <div class="skill-info"><span>امنیت شبکه</span><span>۷۵٪</span></div>
+    <div class="progress"><span style="width:75%"></span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section container" id="gallery">
+ <div class="section-title">
+  <h2>گالری <span>دنیای فناوری</span></h2>
+  <p>نگاهی به زیبایی‌های دنیای کامپیوتر و تکنولوژی</p>
+ </div>
+
+ <div class="gallery">
+  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85" alt="برنامه نویسی">
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85" alt="قطعات کامپیوتر">
+  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=85" alt="کار گروهی فناوری">
+  <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=85" alt="کدنویسی">
+  <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=800&q=85" alt="فناوری آینده">
+  <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=800&q=85" alt="امنیت دیجیتال">
+ </div>
+</section>
+
+<section class="section container">
+ <div class="banner">
+  <h2>آینده متعلق به کسانی است که می‌سازند!</h2>
+  <p>
+   با یادگیری، خلاقیت و تلاش می‌توانی بخشی از آینده فناوری باشی.
+   دنیای بزرگ کامپیوتر منتظر ایده‌های توست.
+  </p>
+  <a href="#contact" class="btn">با ما همراه شو</a>
+ </div>
+</section>
+
+<section class="section container" id="contact">
+ <div class="section-title">
+  <h2>ارتباط با <span>ما</span></h2>
+  <p>نظرات و پیشنهادهای خود را با ما در میان بگذارید</p>
+ </div>
+
+ <div class="contact">
+  <div class="contact-info">
+   <h2>با دنیای فناوری همراه باشید</h2>
+   <p>📧 ایمیل: setayeshpayandeh.com</p>
+   <p>📱 تلفن:03146482251</p>
+   <p>📍 ایران،ورزنه</p>
+   <p>از اینکه از وب‌سایت ما دیدن کردید سپاسگزاریم.</p>
+  </div>
+
+  <form class="contact-form">
+   <input type="text" placeholder="نام و نام خانوادگی">
+   <input type="email" placeholder="ایمیل شما">
+   <textarea placeholder="پیام خود را بنویسید..."></textarea>
+   <button class="btn" type="button">ارسال پیام</button>
+  </form>
+ </div>
+</section>
+
+<footer>
+ <p>طراحی شده با عشق به فناوری 💜 | تمامی حقوق محفوظ است ©</p>
+ <p>دنیای مهندسی کامپیوتر</p>
+</footer>
+
+</body>
+</html>
